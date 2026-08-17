@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "updated": null,
+    "retrievedAt": null,
+    "checkedAt": null,
+    "sourceStatus": {
+      "foreignWorkers": {"state": "not_run", "source": "Jobindsats.dk / STAR", "dataset": null, "latestPeriod": null},
+      "totalEmployees": {"state": "not_run", "source": "Jobindsats.dk / STAR", "dataset": null, "latestPeriod": null}
+    },
+    "updateStatus": {"state": "not_run", "successful": [], "failed": [], "checkedAt": null},
+    "methodNotes": ["Dashboardet afventer første automatiske datahentning fra Jobindsats API v3."]
+  },
+  "sections": {
+    "foreignTimeSeries": {"labels": [], "persons": [], "fulltime": [], "kpi": {}},
+    "share": {"labels": [], "values": [], "kpi": {}},
+    "nationalities": {"items": [], "period": null},
+    "branches": {"items": [], "period": null, "highestShare": null}
+  }
+}
