@@ -1,2 +1,6 @@
-status: ikke-koert
-dato_dk: aldrig
+status: fejl
+tid_utc: 2026-08-17T11:21:02Z
+dato_dk: 2026-08-17
+uge_dk: 2026-W34
+trin: opdatering
+fejl: [Errno 2] No such file or directory: 'scripts/fetch_sources.py'
