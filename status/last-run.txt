@@ -1,0 +1,2 @@
+status: ikke-koert
+dato_dk: aldrig
