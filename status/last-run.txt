@@ -1,6 +1,6 @@
 status: fejl
-tid_utc: 2026-08-17T11:22:00Z
+tid_utc: 2026-08-17T11:22:24Z
 dato_dk: 2026-08-17
 uge_dk: 2026-W34
 trin: opdatering
-fejl: [Errno 2] No such file or directory: 'scripts/fetch_sources.py'
+fejl:  File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/jobindsats_api.py", line 33, in get if not token: raise RuntimeError('JOBINDSATS_API_TOKEN mangler. Opret GitHub-secretet API_ADGANG.') ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ RuntimeError: JOBINDSATS_API_TOKEN mangler. Opret GitHub-secretet API_ADGANG. Traceback (most recent call last): File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/run_update.py", line 49, in <module> main() File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/run_update.py", line 43, in main subprocess.run([sys.executable, str(BASE / "scripts" / "fetch_sources.py")], check=True) File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/subprocess.py", line 571, in run raise CalledProcessError(retcode, process.args, subprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.12.13/x64/bin/python', '/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py']' returned non-zero exit status 1. 

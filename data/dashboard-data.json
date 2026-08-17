@@ -4,16 +4,51 @@
     "retrievedAt": null,
     "checkedAt": null,
     "sourceStatus": {
-      "foreignWorkers": {"state": "not_run", "source": "Jobindsats.dk / STAR", "dataset": null, "latestPeriod": null},
-      "totalEmployees": {"state": "not_run", "source": "Jobindsats.dk / STAR", "dataset": null, "latestPeriod": null}
+      "foreignWorkers": {
+        "state": "not_run",
+        "source": "Jobindsats.dk / STAR",
+        "dataset": null,
+        "latestPeriod": null
+      },
+      "totalEmployees": {
+        "state": "not_run",
+        "source": "Jobindsats.dk / STAR",
+        "dataset": null,
+        "latestPeriod": null
+      }
     },
-    "updateStatus": {"state": "not_run", "successful": [], "failed": [], "checkedAt": null},
-    "methodNotes": ["Dashboardet afventer første automatiske datahentning fra Jobindsats API v3."]
+    "updateStatus": {
+      "state": "failed",
+      "successful": [],
+      "failed": [
+        "JOBINDSATS_API_TOKEN mangler. Opret GitHub-secretet API_ADGANG."
+      ],
+      "checkedAt": "2026-08-17T13:22:25+02:00"
+    },
+    "methodNotes": [
+      "Dashboardet afventer første automatiske datahentning fra Jobindsats API v3."
+    ]
   },
   "sections": {
-    "foreignTimeSeries": {"labels": [], "persons": [], "fulltime": [], "kpi": {}},
-    "share": {"labels": [], "values": [], "kpi": {}},
-    "nationalities": {"items": [], "period": null},
-    "branches": {"items": [], "period": null, "highestShare": null}
+    "foreignTimeSeries": {
+      "labels": [],
+      "persons": [],
+      "fulltime": [],
+      "kpi": {}
+    },
+    "share": {
+      "labels": [],
+      "values": [],
+      "kpi": {}
+    },
+    "nationalities": {
+      "items": [],
+      "period": null
+    },
+    "branches": {
+      "items": [],
+      "period": null,
+      "highestShare": null
+    }
   }
 }
