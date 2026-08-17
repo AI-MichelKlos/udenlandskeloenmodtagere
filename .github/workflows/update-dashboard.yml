@@ -1,0 +1,115 @@
+name: Opdater dashboard for udenlandske lønmodtagere
+run-name: "Udenlandske lønmodtagere - ${{ github.event_name }}"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "scripts/**"
+      - ".github/workflows/update-dashboard.yml"
+      - "README.md"
+  schedule:
+    - cron: "17 7-10 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-udenlandske-loenmodtagere
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      JOBINDSATS_API_TOKEN: ${{ secrets.API_ADGANG }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Afgør om ugens opdatering skal køre
+        id: gate
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          today="$(TZ=Europe/Copenhagen date +'%F')"
+          week="$(TZ=Europe/Copenhagen date +'%G-W%V')"
+          local_hour="$(TZ=Europe/Copenhagen date +'%H')"
+          local_hour=$((10#$local_hour))
+          if [ "$local_hour" -lt 9 ]; then
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          elif grep -Fxq "status: ok" status/last-run.txt 2>/dev/null && grep -Fxq "uge_dk: $week" status/last-run.txt 2>/dev/null; then
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.should_run == 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Hent Jobindsats-data og valider dashboard
+        if: steps.gate.outputs.should_run == 'true'
+        id: update
+        shell: bash
+        run: |
+          mkdir -p status
+          started="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          today="$(TZ=Europe/Copenhagen date +'%F')"
+          week="$(TZ=Europe/Copenhagen date +'%G-W%V')"
+          set +e
+          python -m py_compile scripts/fetch_sources.py scripts/run_update.py scripts/validate_dashboard_repo.py > status/run.log 2>&1
+          code=$?
+          if [ "$code" -eq 0 ]; then
+            python scripts/run_update.py >> status/run.log 2>&1
+            code=$?
+          fi
+          if [ "$code" -eq 0 ]; then
+            python scripts/validate_dashboard_repo.py --repo . --require-source foreignWorkers --require-source totalEmployees >> status/run.log 2>&1
+            code=$?
+          fi
+          set -e
+          cat status/run.log || true
+          if [ "$code" -eq 0 ]; then
+            printf 'status: ok\ntid_utc: %s\ndato_dk: %s\nuge_dk: %s\n' "$started" "$today" "$week" > status/last-run.txt
+          else
+            message="$(tail -n 12 status/run.log | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g')"
+            printf 'status: fejl\ntid_utc: %s\ndato_dk: %s\nuge_dk: %s\ntrin: opdatering\nfejl: %s\n' "$started" "$today" "$week" "$message" > status/last-run.txt
+          fi
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+
+      - name: Kontroller publiceringsfiler
+        if: steps.gate.outputs.should_run == 'true' && steps.update.outputs.exit_code == '0'
+        run: |
+          test -s index.html
+          test -s data/dashboard-data.json
+          grep -q '"state": "ok"' data/dashboard-data.json
+          grep -q 'foreignTimeSeries' data/dashboard-data.json
+          grep -q 'nationalities' data/dashboard-data.json
+          grep -q 'branches' data/dashboard-data.json
+          grep -q 'Udenlandske lønmodtagere i Danmark' index.html
+
+      - name: Gem data og driftsspor
+        if: steps.gate.outputs.should_run == 'true' && always()
+        run: |
+          git add data/dashboard-data.json status/last-run.txt
+          if git diff --cached --quiet; then
+            echo "Ingen dataændringer at gemme."
+          else
+            git config user.name "Dashboard automation"
+            git config user.email "dashboard-automation@users.noreply.github.com"
+            git commit -m "Opdater dashboarddata og status"
+            git push
+          fi
+
+      - name: Markér mislykket kørsel
+        if: steps.gate.outputs.should_run == 'true' && steps.update.outputs.exit_code != '0'
+        run: exit 1
