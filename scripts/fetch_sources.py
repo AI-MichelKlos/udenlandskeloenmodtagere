@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import jobindsats_api as api
-BASE=Path(__file__).resolve().parents[1]; OUT=BASE/'data'/'dashboard-data.json'; MONTHS=400
+BASE=Path(__file__).resolve().parents[1]; OUT=BASE/'data'/'dashboard-data.json'; MONTHS=222
 FOREIGN=['udenlandske statsborgere','lønindkomst i danmark','opholdsgrundlag','statsborgerskab','branche']; TOTAL=['antal lønmodtagere efter bopæl']
 def pkey(p):
     m=re.fullmatch(r'(\d{4})M(\d{2})',str(p)); return (int(m.group(1)),int(m.group(2))) if m else (9999,str(p))
