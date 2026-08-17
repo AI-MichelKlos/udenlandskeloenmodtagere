@@ -21,9 +21,9 @@
       "state": "failed",
       "successful": [],
       "failed": [
-        "JOBINDSATS_API_TOKEN mangler. Opret GitHub-secretet API_ADGANG."
+        "Jobindsats HTTP 422: {\"code\":422,\"cause\":\"Requested latest:400 for type M, but only 222 periods are available.\",\"request_id\":\"ec1b87c7-d785-4a54-a708-4a3bb86ad720\"}"
       ],
-      "checkedAt": "2026-08-17T13:23:30+02:00"
+      "checkedAt": "2026-08-17T13:38:18+02:00"
     },
     "methodNotes": [
       "Dashboardet afventer første automatiske datahentning fra Jobindsats API v3."
