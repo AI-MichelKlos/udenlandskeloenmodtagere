@@ -1,6 +1,4 @@
-status: fejl
-tid_utc: 2026-08-17T11:38:13Z
+status: ok
+tid_utc: 2026-08-17T11:40:58Z
 dato_dk: 2026-08-17
 uge_dk: 2026-W34
-trin: opdatering
-fejl:  File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/jobindsats_api.py", line 43, in get if e.code not in {429,500,502,503,504}: raise last ^^^^^^^^^^ RuntimeError: Jobindsats HTTP 422: {"code":422,"cause":"Requested latest:400 for type M, but only 222 periods are available.","request_id":"ec1b87c7-d785-4a54-a708-4a3bb86ad720"} Traceback (most recent call last): File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/run_update.py", line 49, in <module> main() File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/run_update.py", line 43, in main subprocess.run([sys.executable, str(BASE / "scripts" / "fetch_sources.py")], check=True) File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/subprocess.py", line 571, in run raise CalledProcessError(retcode, process.args, subprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.12.13/x64/bin/python', '/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py']' returned non-zero exit status 1. 
