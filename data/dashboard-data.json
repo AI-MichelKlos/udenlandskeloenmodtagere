@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updated": "2026-08-17",
-    "retrievedAt": "2026-08-17",
-    "checkedAt": "2026-08-17T13:41:23+02:00",
+    "updated": "2026-08-19",
+    "retrievedAt": "2026-08-19",
+    "checkedAt": "2026-08-19T14:14:57+02:00",
     "sourceStatus": {
       "foreignWorkers": {
         "state": "ok",
@@ -11,7 +11,7 @@
         "latestPeriod": "2026M06",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-17T13:41:23+02:00"
+        "checkedAt": "2026-08-19T14:14:57+02:00"
       },
       "totalEmployees": {
         "state": "ok",
@@ -20,7 +20,7 @@
         "latestPeriod": "2026M06",
         "unit": "fuldtidsbeskæftigede lønmodtagere",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-17T13:41:23+02:00"
+        "checkedAt": "2026-08-19T14:14:57+02:00"
       }
     },
     "updateStatus": {
@@ -30,7 +30,7 @@
         "totalEmployees"
       ],
       "failed": [],
-      "checkedAt": "2026-08-17T13:41:23+02:00"
+      "checkedAt": "2026-08-19T14:14:57+02:00"
     },
     "methodNotes": [
       "Andelen er beregnet som udenlandske fuldtidsbeskæftigede divideret med Jobindsats-målingen 'Antal lønmodtagere efter bopæl'.",
