@@ -97,7 +97,7 @@ const nationalityOptions=commonOptions();nationalityOptions.indexAxis='y';nation
 const branchOptions=commonOptions();branchOptions.indexAxis='y';branchOptions.plugins.legend.display=false;branchOptions.interaction={mode:'nearest',intersect:true};branchOptions.scales={x:{beginAtZero:true,grid:{color:COLORS.grid},ticks:{color:COLORS.muted,callback:v=>`${nf1.format(v)} %`}},y:{grid:{display:false},ticks:{color:COLORS.heading,autoSkip:false}}};branchOptions.plugins.tooltip.callbacks={title:items=>items[0]?.label||'',label:ctx=>`Andel udenlandsk arbejdskraft: ${fmtPct(ctx.parsed.x,2)}`,afterBody:items=>{const item=b.items[items[0].dataIndex];return[`Udenlandske personer: ${fmtNumber(item.foreignPersons)}`,`Udenlandske fuldtidsbeskæftigede: ${fmtNumber(item.foreignFulltime)}`,`Alle fuldtidsbeskæftigede: ${fmtNumber(item.totalFulltime)}`,`Periode: ${fmtMonth(b.period)}`]}};new Chart(document.getElementById('branchChart'),{type:'bar',data:{labels:b.items.map(x=>x.label),datasets:[{label:'Andel udenlandsk arbejdskraft',data:b.items.map(x=>x.share),backgroundColor:COLORS.purple}]},options:branchOptions})}
 boot();
 </script>
-<script data-goatcounter="https://hovedsidearbejdsmarked.goatcounter.com/count"
+<script data-goatcounter="https://udenlandskeloennmodtagere.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
