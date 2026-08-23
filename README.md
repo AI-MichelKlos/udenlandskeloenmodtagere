@@ -8,17 +8,22 @@ Dashboardet viser:
 
 1. Månedlig tidsserie fra 2008 med antal udenlandske lønmodtagere og fuldtidsbeskæftigede.
 2. Udenlandske fuldtidsbeskæftigedes andel af alle fuldtidsbeskæftigede lønmodtagere efter bopæl.
-3. Top 25 individuelt opgjorte statsborgerskaber, mens resten samles som "Øvrige lande".
-4. Branchefordeling på den API-gruppering, der bedst matcher 10-grupperingen, med andel udenlandsk arbejdskraft og absolutte tal i tooltip.
+3. Top 25 individuelt opgjorte statsborgerskaber.
+4. Branchefordeling med andel udenlandsk arbejdskraft.
+5. Bopæl i Danmark sammenholdt med pendlere uden registreret dansk bopæl.
+6. Fordeling og udvikling efter opholdsgrundlag.
+7. Fordeling på de fem regioner efter arbejdssted.
+8. Arbejdsmarkedsstatus over tid med andelen, der fortsat er i lønmodtagerbeskæftigelse efter 6, 12, 24, 36, 48 og 60 måneder.
 
 ## Datakilder
 
 Primær kilde er Jobindsats.dk API v3 fra Styrelsen for Arbejdsmarked og Rekruttering.
 
-- Udenlandske statsborgere med lønindkomst i Danmark, opholdsgrundlag, statsborgerskab og branche.
+- Udenlandske statsborgere med lønindkomst i Danmark, herunder bopælsstatus, opholdsgrundlag, statsborgerskab, branche og geografi.
 - Antal lønmodtagere efter bopæl.
+- Beskæftigede udenlandske statsborgeres arbejdsmarkedsstatus over tid.
 
-Målingernes konkrete `table_id`, hierarkier og relevante levels identificeres automatisk fra Jobindsats-metadata ved hver kørsel. Det reducerer risikoen for, at dashboardet bryder, hvis STAR ændrer tabelkoder eller level-id'er.
+Målingernes konkrete `table_id`, hierarkier og relevante levels identificeres fra Jobindsats-metadata ved hver kørsel. Hver ny serie har selvstændig kildestatus, så fejl ikke skjules af de øvrige serier.
 
 ## Automatisk drift
 
@@ -27,22 +32,9 @@ Workflowet `.github/workflows/update-dashboard.yml`:
 - kan startes manuelt med `workflow_dispatch`,
 - forsøger ugentlig opdatering mandag formiddag med flere backupforsøg,
 - bruger dansk uge som lås, så højst én vellykket fuld opdatering gemmes pr. uge,
-- validerer Python, datafil, kilde-status og dashboardfiler,
+- validerer Python, datafil, alle påkrævede kilder og dashboardfiler,
 - committer kun data og status, når der er ændringer.
 
-## Engangsopsætning
+## Metodiske noter
 
-Der er to GitHub-indstillinger, som ikke kan oprettes via den anvendte connector:
-
-1. Opret repository-secretet `API_ADGANG` med dit Jobindsats API-token.
-2. Aktivér GitHub Pages for repositoryet med `main` som kilde og `/ (root)` som mappe.
-
-Når det er gjort, kør workflowet manuelt én gang. Den forventede Pages-adresse er:
-
-`https://ai-michelklos.github.io/udenlandskeloenmodtagere/`
-
-## Metodisk note
-
-Den specificerede denominator er målingen "Antal lønmodtagere efter bopæl". Den udenlandske serie kan også omfatte udenlandske statsborgere uden registreret bopæl i Danmark. Dashboardet viser derfor et tydeligt metodeforbehold ved de beregnede andele.
-
-Jobindsats kan desuden samle en del af tredjelandene i en restkategori. Hvis API'et ikke leverer alle nationaliteter enkeltvis, ændres KPI-teksten automatisk til "Individuelt opgjorte nationaliteter" i stedet for at vise et fejlagtigt eksakt antal nationaliteter.
+Bopælsstatus følger CPR-registreringen. Geografien i regionsvisningen er arbejdsstedets placering, ikke den ansattes bopæl. Opholdsgrundlag følger den registrerede kategori i Jobindsats. Retentionsmålingen følger beskæftigede udenlandske statsborgere frem i tid og er derfor en kohortemåling, ikke en almindelig tidsserie.
