@@ -61,17 +61,12 @@
       }
     },
     "updateStatus": {
-      "state": "ok",
-      "successful": [
-        "foreignWorkers",
-        "totalEmployees",
-        "residence",
-        "residencePermits",
-        "regions",
-        "retention"
+      "state": "failed",
+      "successful": [],
+      "failed": [
+        "Retention mangler procentkolonner for: [6, 12, 24, 36, 48, 60]. Kolonner: ['Periode', 'Område', 'Arbejdsmarkedsstatus', 'Population af beskæftigede udenl. statsborgere', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 6 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 12 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 24 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 36 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 48 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 60 md., pct.', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 6 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 12 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 24 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 36 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 48 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 60 md., antal']"
       ],
-      "failed": [],
-      "checkedAt": "2026-08-23T18:43:18+02:00"
+      "checkedAt": "2026-08-23T18:47:03+02:00"
     },
     "methodNotes": [
       "Andelen er beregnet som udenlandske fuldtidsbeskæftigede divideret med Jobindsats-målingen 'Antal lønmodtagere efter bopæl'.",
