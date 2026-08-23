@@ -1,6 +1,6 @@
 status: fejl
-tid_utc: 2026-08-23T16:35:50Z
+tid_utc: 2026-08-23T16:37:29Z
 dato_dk: 2026-08-23
 uge_dk: 2026-W34
 trin: opdatering
-fejl:  main() File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/run_update.py", line 70, in main fetch_sources.main() File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py", line 594, in main data = build() ^^^^^^^ File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py", line 534, in build retention_data = retention(retention_rows) ^^^^^^^^^^^^^^^^^^^^^^^^^ File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py", line 437, in retention raise RuntimeError('Retention-m\u00e5lingen havde for f\u00e5 brugbare nedslag for en kohorte.') RuntimeError: Retention-målingen havde for få brugbare nedslag for en kohorte. 
+fejl:  main() File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/run_update.py", line 85, in main fetch_sources.main() File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py", line 594, in main data = build() ^^^^^^^ File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py", line 534, in build retention_data = retention(retention_rows) ^^^^^^^^^^^^^^^^^^^^^^^^^ File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py", line 437, in retention raise RuntimeError('Retention-m\u00e5lingen havde for f\u00e5 brugbare nedslag for en kohorte.') RuntimeError: Retention-målingen havde for få brugbare nedslag for en kohorte. 
