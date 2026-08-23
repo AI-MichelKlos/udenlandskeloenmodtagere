@@ -10,30 +10,69 @@ import fetch_sources
 BASE = Path(__file__).resolve().parents[1]
 DATA = BASE / "data" / "dashboard-data.json"
 INDEX = BASE / "index.html"
+OFFSETS = (6, 12, 24, 36, 48, 60)
 
 
-def robust_retention_bucket(label):
-    n = fetch_sources.api.norm(label)
-    if ('lonmodtager' in n or 'loenmodtager' in n) and 'beskaeft' in n:
-        return 'employed'
-    if 'beskaeftigelse' in n and 'offentlig' not in n and 'ydelse' not in n:
-        return 'employed'
-    if ('offentlig' in n and 'ydelse' in n) or 'forsorgelse' in n or 'forsoergelse' in n:
-        return 'benefitOnly'
-    if ('hverken' in n and ('bopael' in n or 'beskaeftigelse' in n)) or 'udvandret' in n or 'ikke bosat' in n:
-        return 'outside'
-    return None
+def explicit_retention(rows):
+    period_col = fetch_sources.api.best_col(rows, ["periode"])
+    status_col = fetch_sources.api.best_col(rows, ["arbejdsmarkedsstatus", "status"], distinct=True)
+    cols = fetch_sources.columns(rows)
 
+    pct_cols = {}
+    for col in cols:
+        norm = fetch_sources.api.norm(col)
+        if "andel" not in norm and "pct" not in norm and "procent" not in norm:
+            continue
+        match = re.search(r"status\s+(6|12|24|36|48|60)\s+md", norm)
+        if match:
+            pct_cols[int(match.group(1))] = col
+    missing = [offset for offset in OFFSETS if offset not in pct_cols]
+    if missing:
+        raise RuntimeError(f"Retention mangler procentkolonner for: {missing}. Kolonner: {cols}")
 
-def robust_offset_from_text(value):
-    text = fetch_sources.api.norm(value)
-    match = re.search(r'status\s+(6|12|24|36|48|60)\s+md', text)
-    if match:
-        return int(match.group(1))
-    matches = re.findall(r'(6|12|24|36|48|60)\s+md', text)
-    if matches:
-        return int(matches[-1])
-    return fetch_sources.offset_from_text_original(value) if hasattr(fetch_sources, 'offset_from_text_original') else None
+    grouped = {}
+    for row in rows:
+        period = str(row.get(period_col) or "").strip()
+        status = fetch_sources.api.norm(row.get(status_col))
+        if not period or not status:
+            continue
+        entry = grouped.setdefault(period, {"employed": {}, "benefitOnly": {}, "outside": {}})
+        if status == "alene loenmodtagerbeskaeftigelse":
+            bucket = "employed"
+        elif status == "alene offentlig ydelse":
+            bucket = "benefitOnly"
+        elif status.startswith("hverken beskaeft") and "bopael" in status:
+            bucket = "outside"
+        else:
+            continue
+        for offset, col in pct_cols.items():
+            value = fetch_sources.api.num(row.get(col))
+            if value is not None:
+                entry[bucket][offset] = float(value)
+
+    periods = sorted(grouped, key=fetch_sources.pkey)
+    if not periods:
+        raise RuntimeError("Retention gav ingen genkendelige arbejdsmarkedsstatusser.")
+
+    complete = [period for period in periods if all(offset in grouped[period]["employed"] for offset in OFFSETS)]
+    if complete:
+        cohort = complete[-1]
+    else:
+        cohort = max(periods, key=lambda period: (len(grouped[period]["employed"]), fetch_sources.pkey(period)))
+    if len(grouped[cohort]["employed"]) < 2:
+        raise RuntimeError("Retention havde for få brugbare beskæftigelsesandele.")
+
+    def values(bucket):
+        return [round(grouped[cohort][bucket][offset], 4) if offset in grouped[cohort][bucket] else None for offset in OFFSETS]
+
+    return {
+        "sourceLatestPeriod": periods[-1],
+        "cohortPeriod": cohort,
+        "offsets": list(OFFSETS),
+        "employedPct": values("employed"),
+        "benefitOnlyPct": values("benefitOnly"),
+        "outsidePct": values("outside"),
+    }
 
 
 def validate():
@@ -73,15 +112,14 @@ def validate():
     if len(regions) < 5:
         raise RuntimeError("Regionsfordelingen mangler regioner")
     retention = sections.get("retention", {})
-    if len(retention.get("offsets", [])) < 2 or len(retention.get("employedPct", [])) != len(retention.get("offsets", [])):
+    if retention.get("offsets") != list(OFFSETS) or len(retention.get("employedPct", [])) != len(OFFSETS):
         raise RuntimeError("Retention-serien er ikke konsistent")
+    if sum(value is not None for value in retention.get("employedPct", [])) < 2:
+        raise RuntimeError("Retention-serien mangler beskæftigelsesandele")
 
 
 def main():
-    if not hasattr(fetch_sources, 'offset_from_text_original'):
-        fetch_sources.offset_from_text_original = fetch_sources.offset_from_text
-    fetch_sources.offset_from_text = robust_offset_from_text
-    fetch_sources.retention_bucket = robust_retention_bucket
+    fetch_sources.retention = explicit_retention
     fetch_sources.main()
     validate()
     print("Dashboarddata bestod projektets kvalitetskontrol.")
