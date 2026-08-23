@@ -73,7 +73,7 @@ jobs:
             code=$?
           fi
           if [ "$code" -eq 0 ]; then
-            python scripts/validate_dashboard_repo.py --repo . --require-source foreignWorkers --require-source totalEmployees >> status/run.log 2>&1
+            python scripts/validate_dashboard_repo.py --repo . --require-source foreignWorkers --require-source totalEmployees --require-source residence --require-source residencePermits --require-source regions --require-source retention >> status/run.log 2>&1
             code=$?
           fi
           set -e
@@ -95,6 +95,10 @@ jobs:
           grep -q 'foreignTimeSeries' data/dashboard-data.json
           grep -q 'nationalities' data/dashboard-data.json
           grep -q 'branches' data/dashboard-data.json
+          grep -q 'residence' data/dashboard-data.json
+          grep -q 'residencePermits' data/dashboard-data.json
+          grep -q 'regions' data/dashboard-data.json
+          grep -q 'retention' data/dashboard-data.json
           grep -q 'Udenlandske lønmodtagere i Danmark' index.html
 
       - name: Gem data og driftsspor
