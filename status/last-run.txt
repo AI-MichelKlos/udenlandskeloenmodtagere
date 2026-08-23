@@ -1,6 +1,6 @@
 status: fejl
-tid_utc: 2026-08-23T16:44:11Z
+tid_utc: 2026-08-23T16:44:51Z
 dato_dk: 2026-08-23
 uge_dk: 2026-W34
 trin: opdatering
-fejl: Y24J HIERARCHIES [{"hierarchy_id": "_region", "blob": "hierarchy id region hierarchy name regioner hierarchy order 0 is required false is selectable true is active true"}, {"hierarchy_id": "_ams_status", "blob": "hierarchy id ams status hierarchy name arbejdsmarkedsstatus hierarchy order 1 is required true is selectable false is active true"}, {"hierarchy_id": "_bopael", "blob": "hierarchy id bopael hierarchy name bopaelsland hierarchy order 3 is required false is selectable true is active true"}, {"hierarchy_id": "_popbeskudl", "blob": "hierarchy id popbeskudl hierarchy name population af beskaeftigede udenl statsborgere hierarchy order 10 is required true is selectable true is active true"}, {"hierarchy_id": "_ophold_y24jkl", "blob": "hierarchy id ophold y24jkl hierarchy name opholdsgrundlag hierarchy order 11 is required false is selectable true is active true"}, {"hierarchy_id": "_statsborgerskab_y24b", "blob": "hierarchy id statsborgerskab y24b hierarchy name statsborgerskab hierarchy order 21 is required false is selectable true is active true"}, {"hierarchy_id": "_cprreg", "blob": "hierarchy id cprreg hierarchy name aar for udstedelse af cpr nr hierarchy order 30 is required false is selectable true is active true"}] 
+fejl: Y24J POP VALUES [{"value_id": "/2/", "blob": "value id 2 value name alle beskaeftigede i den valgte periode"}, {"value_id": "/3/", "blob": "value id 3 value name foerstegangsbeskaeftigede i den valgte periode"}] 
