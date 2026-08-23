@@ -18,7 +18,7 @@ RETENTION_MONTHS = 84
 
 FOREIGN = ['udenlandske statsborgere', 'l\u00f8nindkomst i danmark', 'opholdsgrundlag', 'statsborgerskab', 'branche']
 TOTAL = ['antal l\u00f8nmodtagere efter bop\u00e6l']
-RETENTION = ['besk\u00e6ftigede udenlandske statsborgeres arbejdsmarkedsstatus over tid']
+RETENTION = ['udenlandske statsborgere', 'arbejdsmarkedsstatus', 'over tid']
 
 
 def pkey(period):
@@ -529,7 +529,8 @@ def build():
     region_p, region_f = measures_foreign(region_rows)
     region_data = regions(region_rows, region_p, region_f, foreign_persons[lf])
 
-    retention_rows = query_custom(rid, rs, f'latest:{RETENTION_MONTHS}')
+    retention_status_h = api.find_hierarchy(rs, ['arbejdsmarkedsstatus', 'status'], ('_ams_status',))
+    retention_rows = query_custom(rid, rs, f'latest:{RETENTION_MONTHS}', [(retention_status_h, None)])
     retention_data = retention(retention_rows)
 
     now = datetime.now(ZoneInfo('Europe/Copenhagen')).isoformat(timespec='seconds')
