@@ -2,7 +2,7 @@
   "meta": {
     "updated": "2026-08-23",
     "retrievedAt": "2026-08-23",
-    "checkedAt": "2026-08-23T18:43:18+02:00",
+    "checkedAt": "2026-08-23T18:48:35+02:00",
     "sourceStatus": {
       "foreignWorkers": {
         "state": "ok",
@@ -11,7 +11,7 @@
         "latestPeriod": "2026M06",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:43:18+02:00"
+        "checkedAt": "2026-08-23T18:48:35+02:00"
       },
       "totalEmployees": {
         "state": "ok",
@@ -20,7 +20,7 @@
         "latestPeriod": "2026M06",
         "unit": "fuldtidsbeskæftigede lønmodtagere",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:43:18+02:00"
+        "checkedAt": "2026-08-23T18:48:35+02:00"
       },
       "residence": {
         "state": "ok",
@@ -29,7 +29,7 @@
         "latestPeriod": "2026M06",
         "unit": "personer",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:43:18+02:00"
+        "checkedAt": "2026-08-23T18:48:35+02:00"
       },
       "residencePermits": {
         "state": "ok",
@@ -38,7 +38,7 @@
         "latestPeriod": "2026M06",
         "unit": "personer",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:43:18+02:00"
+        "checkedAt": "2026-08-23T18:48:35+02:00"
       },
       "regions": {
         "state": "ok",
@@ -47,26 +47,31 @@
         "latestPeriod": "2026M06",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:43:18+02:00"
+        "checkedAt": "2026-08-23T18:48:35+02:00"
       },
       "retention": {
         "state": "ok",
         "source": "Jobindsats.dk / STAR",
-        "dataset": "y24k",
-        "latestPeriod": "2026M06",
-        "selectedCohort": "2026M06",
+        "dataset": "y24j",
+        "latestPeriod": "2025M12",
+        "selectedCohort": "2021M06",
         "unit": "andel, pct.",
         "seasonalAdjustment": "ikke relevant",
-        "checkedAt": "2026-08-23T18:43:18+02:00"
+        "checkedAt": "2026-08-23T18:48:35+02:00"
       }
     },
     "updateStatus": {
-      "state": "failed",
-      "successful": [],
-      "failed": [
-        "Retention mangler procentkolonner for: [6, 12, 24, 36, 48, 60]. Kolonner: ['Periode', 'Område', 'Arbejdsmarkedsstatus', 'Population af beskæftigede udenl. statsborgere', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 6 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 12 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 24 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 36 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 48 md., pct.', 'Andel (Arbejdsmarkedsstatus over tid, pct. (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 60 md., pct.', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 6 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 12 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 24 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 36 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 48 md., antal', 'Antal personer (Arbejdsmarkedsstatus over tid, antal (efter 6, 12, 24, 36, 48 og 60 mdr.): Arbejdsmarkedsstatus efter 60 md., antal']"
+      "state": "ok",
+      "successful": [
+        "foreignWorkers",
+        "totalEmployees",
+        "residence",
+        "residencePermits",
+        "regions",
+        "retention"
       ],
-      "checkedAt": "2026-08-23T18:47:03+02:00"
+      "failed": [],
+      "checkedAt": "2026-08-23T18:48:35+02:00"
     },
     "methodNotes": [
       "Andelen er beregnet som udenlandske fuldtidsbeskæftigede divideret med Jobindsats-målingen 'Antal lønmodtagere efter bopæl'.",
@@ -3315,8 +3320,8 @@
       ]
     },
     "retention": {
-      "sourceLatestPeriod": "2026M06",
-      "cohortPeriod": "2026M06",
+      "sourceLatestPeriod": "2025M12",
+      "cohortPeriod": "2021M06",
       "offsets": [
         6,
         12,
@@ -3326,28 +3331,28 @@
         60
       ],
       "employedPct": [
-        79.8,
-        74.4,
-        64.5,
-        56.6,
-        49.2,
-        41.1
+        84.2,
+        80.8,
+        75.6,
+        72.3,
+        69.8,
+        67.6
       ],
       "benefitOnlyPct": [
-        2.3,
-        2.7,
+        2.1,
         3.2,
-        3.3,
-        3.5,
-        3.7
+        4.6,
+        5.2,
+        5.6,
+        5.5
       ],
       "outsidePct": [
-        6.0,
-        11.1,
-        20.1,
-        27.1,
-        33.7,
-        40.7
+        5.4,
+        7.5,
+        11.6,
+        14.5,
+        16.7,
+        18.4
       ]
     }
   }
