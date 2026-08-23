@@ -1,21 +1,19 @@
 #!/usr/bin/env python3
 import json
+import sys
 import jobindsats_api as api
 
 
 def main():
-    tables = api.get('tables', {'format': 'json'})
-    candidates = []
-    seen = set()
-    for item in api.walk(tables):
-        tid = item.get('table_id')
-        if not tid or tid in seen:
-            continue
-        text = api.blob(item)
-        if 'udenland' in text and 'arbejdsmarkedsstatus' in text:
-            seen.add(tid)
-            candidates.append((str(tid), text[:700]))
-    print('RETENTION TABLE CANDIDATES', json.dumps(candidates, ensure_ascii=False))
+    spec = api.get('table/y24j', {'format': 'json'})
+    summaries = []
+    for h in api.hierarchies(spec):
+        summaries.append({
+            'hierarchy_id': h.get('hierarchy_id'),
+            'blob': api.blob(h)[:1200],
+        })
+    print('Y24J HIERARCHIES', json.dumps(summaries, ensure_ascii=False))
+    sys.exit(1)
 
 
 if __name__ == '__main__':
