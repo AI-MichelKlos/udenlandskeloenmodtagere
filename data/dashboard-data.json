@@ -27,9 +27,9 @@
       "state": "failed",
       "successful": [],
       "failed": [
-        "Jobindsats HTTP 422: {\"code\":422,\"cause\":\"Dimension '_ams_status' has a required hierarchy but no values are covered.\",\"request_id\":\"20487ee7-3758-4d28-a259-efeab19b464b\"}"
+        "Retention-målingen havde for få brugbare nedslag for en kohorte."
       ],
-      "checkedAt": "2026-08-23T18:29:00+02:00"
+      "checkedAt": "2026-08-23T18:31:09+02:00"
     },
     "methodNotes": [
       "Andelen er beregnet som udenlandske fuldtidsbeskæftigede divideret med Jobindsats-målingen 'Antal lønmodtagere efter bopæl'.",
