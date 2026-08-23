@@ -15,8 +15,10 @@ OFFSETS = (6, 12, 24, 36, 48, 60)
 
 def explicit_retention(rows):
     period_col = fetch_sources.api.best_col(rows, ["periode"])
-    status_col = fetch_sources.api.best_col(rows, ["arbejdsmarkedsstatus", "status"], distinct=True)
     cols = fetch_sources.columns(rows)
+    status_col = next((col for col in cols if fetch_sources.api.norm(col) == "arbejdsmarkedsstatus"), None)
+    if not status_col:
+        raise RuntimeError(f"Retention mangler kolonnen Arbejdsmarkedsstatus. Kolonner: {cols}")
 
     pct_cols = {}
     for col in cols:
