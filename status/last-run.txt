@@ -1,6 +1,4 @@
-status: fejl
-tid_utc: 2026-08-23T16:39:30Z
+status: ok
+tid_utc: 2026-08-23T16:41:17Z
 dato_dk: 2026-08-23
 uge_dk: 2026-W34
-trin: opdatering
-fejl:  main() File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/run_update.py", line 123, in main fetch_sources.main() File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py", line 594, in main data = build() ^^^^^^^ File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/fetch_sources.py", line 534, in build retention_data = retention(retention_rows) ^^^^^^^^^^^^^^^^^^^^^^^^^ File "/home/runner/work/udenlandskeloenmodtagere/udenlandskeloenmodtagere/scripts/run_update.py", line 63, in explicit_retention raise RuntimeError("Retention havde for få brugbare beskæftigelsesandele.") RuntimeError: Retention havde for få brugbare beskæftigelsesandele. 
