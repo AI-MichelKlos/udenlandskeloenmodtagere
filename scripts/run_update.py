@@ -2,13 +2,26 @@
 from __future__ import annotations
 
 import json
-import subprocess
-import sys
 from pathlib import Path
+
+import fetch_sources
 
 BASE = Path(__file__).resolve().parents[1]
 DATA = BASE / "data" / "dashboard-data.json"
 INDEX = BASE / "index.html"
+
+
+def robust_retention_bucket(label):
+    n = fetch_sources.api.norm(label)
+    if ('lonmodtager' in n or 'loenmodtager' in n) and ('beskaeft' in n or 'beskæft' in str(label).lower()):
+        return 'employed'
+    if 'beskaeftigelse' in n and 'offentlig' not in n and 'ydelse' not in n:
+        return 'employed'
+    if ('offentlig' in n and 'ydelse' in n) or 'forsorgelse' in n or 'forsoergelse' in n:
+        return 'benefitOnly'
+    if ('hverken' in n and ('bopael' in n or 'beskaeftigelse' in n)) or 'udvandret' in n or 'ikke bosat' in n:
+        return 'outside'
+    return None
 
 
 def validate():
@@ -53,7 +66,8 @@ def validate():
 
 
 def main():
-    subprocess.run([sys.executable, str(BASE / "scripts" / "fetch_sources.py")], check=True)
+    fetch_sources.retention_bucket = robust_retention_bucket
+    fetch_sources.main()
     validate()
     print("Dashboarddata bestod projektets kvalitetskontrol.")
 
