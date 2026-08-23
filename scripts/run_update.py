@@ -25,7 +25,7 @@ def explicit_retention(rows):
         norm = fetch_sources.api.norm(col)
         if "andel" not in norm and "pct" not in norm and "procent" not in norm:
             continue
-        match = re.search(r"status\s+(6|12|24|36|48|60)\s+md", norm)
+        match = re.search(r"(?:arbejdsmarkedsstatus|status)\s+(?:efter\s+)?(6|12|24|36|48|60)\s+md", norm)
         if match:
             pct_cols[int(match.group(1))] = col
     missing = [offset for offset in OFFSETS if offset not in pct_cols]
