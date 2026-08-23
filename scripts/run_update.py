@@ -20,7 +20,8 @@ def validate():
     if status.get("state") != "ok":
         raise RuntimeError(f"Dataopdateringen er ikke ok: {status}")
     sources = meta.get("sourceStatus", {})
-    for key in ("foreignWorkers", "totalEmployees"):
+    required_sources = ("foreignWorkers", "totalEmployees", "residence", "residencePermits", "regions", "retention")
+    for key in required_sources:
         info = sources.get(key, {})
         if info.get("state") != "ok" or not info.get("dataset") or not info.get("latestPeriod"):
             raise RuntimeError(f"Kildestatus er ikke komplet for {key}: {info}")
@@ -37,6 +38,18 @@ def validate():
         raise RuntimeError("Branchegrafen har ingen data")
     if not sections.get("nationalities", {}).get("items", []):
         raise RuntimeError("Statsborgerskabsgrafen har ingen data")
+    residence = sections.get("residence", {})
+    if not residence.get("labels") or len(residence.get("series", [])) < 2:
+        raise RuntimeError("Bopælsfordelingen mangler data")
+    permits = sections.get("residencePermits", {})
+    if not permits.get("labels") or not permits.get("series"):
+        raise RuntimeError("Opholdsgrundlag mangler data")
+    regions = sections.get("regions", {}).get("items", [])
+    if len(regions) < 5:
+        raise RuntimeError("Regionsfordelingen mangler regioner")
+    retention = sections.get("retention", {})
+    if len(retention.get("offsets", [])) < 2 or len(retention.get("employedPct", [])) != len(retention.get("offsets", [])):
+        raise RuntimeError("Retention-serien er ikke konsistent")
 
 
 def main():
