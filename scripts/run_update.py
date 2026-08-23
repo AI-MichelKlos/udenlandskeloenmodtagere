@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import fetch_sources
@@ -13,7 +14,7 @@ INDEX = BASE / "index.html"
 
 def robust_retention_bucket(label):
     n = fetch_sources.api.norm(label)
-    if ('lonmodtager' in n or 'loenmodtager' in n) and ('beskaeft' in n or 'beskæft' in str(label).lower()):
+    if ('lonmodtager' in n or 'loenmodtager' in n) and 'beskaeft' in n:
         return 'employed'
     if 'beskaeftigelse' in n and 'offentlig' not in n and 'ydelse' not in n:
         return 'employed'
@@ -22,6 +23,17 @@ def robust_retention_bucket(label):
     if ('hverken' in n and ('bopael' in n or 'beskaeftigelse' in n)) or 'udvandret' in n or 'ikke bosat' in n:
         return 'outside'
     return None
+
+
+def robust_offset_from_text(value):
+    text = fetch_sources.api.norm(value)
+    match = re.search(r'status\s+(6|12|24|36|48|60)\s+md', text)
+    if match:
+        return int(match.group(1))
+    matches = re.findall(r'(6|12|24|36|48|60)\s+md', text)
+    if matches:
+        return int(matches[-1])
+    return fetch_sources.offset_from_text_original(value) if hasattr(fetch_sources, 'offset_from_text_original') else None
 
 
 def validate():
@@ -66,6 +78,9 @@ def validate():
 
 
 def main():
+    if not hasattr(fetch_sources, 'offset_from_text_original'):
+        fetch_sources.offset_from_text_original = fetch_sources.offset_from_text
+    fetch_sources.offset_from_text = robust_offset_from_text
     fetch_sources.retention_bucket = robust_retention_bucket
     fetch_sources.main()
     validate()
