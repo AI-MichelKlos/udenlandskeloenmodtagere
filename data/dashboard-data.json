@@ -2,7 +2,7 @@
   "meta": {
     "updated": "2026-08-23",
     "retrievedAt": "2026-08-23",
-    "checkedAt": "2026-08-23T18:48:35+02:00",
+    "checkedAt": "2026-08-23T18:50:22+02:00",
     "sourceStatus": {
       "foreignWorkers": {
         "state": "ok",
@@ -11,7 +11,7 @@
         "latestPeriod": "2026M06",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:48:35+02:00"
+        "checkedAt": "2026-08-23T18:50:22+02:00"
       },
       "totalEmployees": {
         "state": "ok",
@@ -20,7 +20,7 @@
         "latestPeriod": "2026M06",
         "unit": "fuldtidsbeskæftigede lønmodtagere",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:48:35+02:00"
+        "checkedAt": "2026-08-23T18:50:22+02:00"
       },
       "residence": {
         "state": "ok",
@@ -29,7 +29,7 @@
         "latestPeriod": "2026M06",
         "unit": "personer",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:48:35+02:00"
+        "checkedAt": "2026-08-23T18:50:22+02:00"
       },
       "residencePermits": {
         "state": "ok",
@@ -38,7 +38,7 @@
         "latestPeriod": "2026M06",
         "unit": "personer",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:48:35+02:00"
+        "checkedAt": "2026-08-23T18:50:22+02:00"
       },
       "regions": {
         "state": "ok",
@@ -47,7 +47,7 @@
         "latestPeriod": "2026M06",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-08-23T18:48:35+02:00"
+        "checkedAt": "2026-08-23T18:50:22+02:00"
       },
       "retention": {
         "state": "ok",
@@ -57,7 +57,7 @@
         "selectedCohort": "2021M06",
         "unit": "andel, pct.",
         "seasonalAdjustment": "ikke relevant",
-        "checkedAt": "2026-08-23T18:48:35+02:00"
+        "checkedAt": "2026-08-23T18:50:22+02:00"
       }
     },
     "updateStatus": {
@@ -71,7 +71,7 @@
         "retention"
       ],
       "failed": [],
-      "checkedAt": "2026-08-23T18:48:35+02:00"
+      "checkedAt": "2026-08-23T18:50:22+02:00"
     },
     "methodNotes": [
       "Andelen er beregnet som udenlandske fuldtidsbeskæftigede divideret med Jobindsats-målingen 'Antal lønmodtagere efter bopæl'.",
