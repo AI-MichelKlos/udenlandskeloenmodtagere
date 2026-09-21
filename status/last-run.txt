@@ -1,4 +1,4 @@
 status: ok
-tid_utc: 2026-09-14T14:02:08Z
-dato_dk: 2026-09-14
-uge_dk: 2026-W38
+tid_utc: 2026-09-21T14:08:15Z
+dato_dk: 2026-09-21
+uge_dk: 2026-W39
