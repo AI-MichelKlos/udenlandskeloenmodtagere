@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updated": "2026-10-12",
-    "retrievedAt": "2026-10-12",
-    "checkedAt": "2026-10-12T18:44:39+02:00",
+    "updated": "2026-10-19",
+    "retrievedAt": "2026-10-19",
+    "checkedAt": "2026-10-19T16:40:49+02:00",
     "sourceStatus": {
       "foreignWorkers": {
         "state": "ok",
@@ -11,7 +11,7 @@
         "latestPeriod": "2026M08",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-10-12T18:44:39+02:00"
+        "checkedAt": "2026-10-19T16:40:49+02:00"
       },
       "totalEmployees": {
         "state": "ok",
@@ -20,7 +20,7 @@
         "latestPeriod": "2026M08",
         "unit": "fuldtidsbeskæftigede lønmodtagere",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-10-12T18:44:39+02:00"
+        "checkedAt": "2026-10-19T16:40:49+02:00"
       },
       "residence": {
         "state": "ok",
@@ -29,7 +29,7 @@
         "latestPeriod": "2026M08",
         "unit": "personer",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-10-12T18:44:39+02:00"
+        "checkedAt": "2026-10-19T16:40:49+02:00"
       },
       "residencePermits": {
         "state": "ok",
@@ -38,7 +38,7 @@
         "latestPeriod": "2026M08",
         "unit": "personer",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-10-12T18:44:39+02:00"
+        "checkedAt": "2026-10-19T16:40:49+02:00"
       },
       "regions": {
         "state": "ok",
@@ -47,17 +47,17 @@
         "latestPeriod": "2026M08",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-10-12T18:44:39+02:00"
+        "checkedAt": "2026-10-19T16:40:49+02:00"
       },
       "retention": {
         "state": "ok",
         "source": "Jobindsats.dk / STAR",
         "dataset": "y24j",
-        "latestPeriod": "2026M01",
-        "selectedCohort": "2021M07",
+        "latestPeriod": "2026M02",
+        "selectedCohort": "2021M08",
         "unit": "andel, pct.",
         "seasonalAdjustment": "ikke relevant",
-        "checkedAt": "2026-10-12T18:44:39+02:00"
+        "checkedAt": "2026-10-19T16:40:49+02:00"
       }
     },
     "updateStatus": {
@@ -71,7 +71,7 @@
         "retention"
       ],
       "failed": [],
-      "checkedAt": "2026-10-12T18:44:39+02:00"
+      "checkedAt": "2026-10-19T16:40:49+02:00"
     },
     "methodNotes": [
       "Andelen er beregnet som udenlandske fuldtidsbeskæftigede divideret med Jobindsats-målingen 'Antal lønmodtagere efter bopæl'.",
@@ -3320,8 +3320,8 @@
       ]
     },
     "retention": {
-      "sourceLatestPeriod": "2026M01",
-      "cohortPeriod": "2021M07",
+      "sourceLatestPeriod": "2026M02",
+      "cohortPeriod": "2021M08",
       "offsets": [
         6,
         12,
@@ -3331,28 +3331,28 @@
         60
       ],
       "employedPct": [
-        81.7,
-        81.1,
-        75.7,
-        72.2,
-        69.7,
-        67.5
+        82.6,
+        81.2,
+        75.8,
+        72.3,
+        69.9,
+        67.8
       ],
       "benefitOnlyPct": [
         2.8,
-        3.2,
-        4.6,
-        5.2,
+        3.4,
+        4.8,
+        5.4,
         5.6,
-        5.4
+        5.6
       ],
       "outsidePct": [
-        6.4,
-        7.6,
-        11.7,
-        14.7,
-        16.8,
-        18.5
+        5.8,
+        7.5,
+        11.5,
+        14.4,
+        16.6,
+        18.2
       ]
     }
   }
