@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updated": "2026-11-02",
-    "retrievedAt": "2026-11-02",
-    "checkedAt": "2026-11-02T18:04:23+01:00",
+    "updated": "2026-11-09",
+    "retrievedAt": "2026-11-09",
+    "checkedAt": "2026-11-09T18:29:22+01:00",
     "sourceStatus": {
       "foreignWorkers": {
         "state": "ok",
@@ -11,16 +11,16 @@
         "latestPeriod": "2026M08",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-11-02T18:04:23+01:00"
+        "checkedAt": "2026-11-09T18:29:22+01:00"
       },
       "totalEmployees": {
         "state": "ok",
         "source": "Jobindsats.dk / STAR",
         "dataset": "y25l01",
-        "latestPeriod": "2026M08",
+        "latestPeriod": "2026M09",
         "unit": "fuldtidsbeskæftigede lønmodtagere",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-11-02T18:04:23+01:00"
+        "checkedAt": "2026-11-09T18:29:22+01:00"
       },
       "residence": {
         "state": "ok",
@@ -29,7 +29,7 @@
         "latestPeriod": "2026M08",
         "unit": "personer",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-11-02T18:04:23+01:00"
+        "checkedAt": "2026-11-09T18:29:22+01:00"
       },
       "residencePermits": {
         "state": "ok",
@@ -38,7 +38,7 @@
         "latestPeriod": "2026M08",
         "unit": "personer",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-11-02T18:04:23+01:00"
+        "checkedAt": "2026-11-09T18:29:22+01:00"
       },
       "regions": {
         "state": "ok",
@@ -47,7 +47,7 @@
         "latestPeriod": "2026M08",
         "unit": "personer og fuldtidsbeskæftigede",
         "seasonalAdjustment": "faktiske tal, ikke sæsonkorrigeret",
-        "checkedAt": "2026-11-02T18:04:23+01:00"
+        "checkedAt": "2026-11-09T18:29:22+01:00"
       },
       "retention": {
         "state": "ok",
@@ -57,7 +57,7 @@
         "selectedCohort": "2021M08",
         "unit": "andel, pct.",
         "seasonalAdjustment": "ikke relevant",
-        "checkedAt": "2026-11-02T18:04:23+01:00"
+        "checkedAt": "2026-11-09T18:29:22+01:00"
       }
     },
     "updateStatus": {
@@ -71,7 +71,7 @@
         "retention"
       ],
       "failed": [],
-      "checkedAt": "2026-11-02T18:04:23+01:00"
+      "checkedAt": "2026-11-09T18:29:22+01:00"
     },
     "methodNotes": [
       "Andelen er beregnet som udenlandske fuldtidsbeskæftigede divideret med Jobindsats-målingen 'Antal lønmodtagere efter bopæl'.",
@@ -770,7 +770,6 @@
     },
     "share": {
       "labels": [
-        "2008M03",
         "2008M04",
         "2008M05",
         "2008M06",
@@ -994,7 +993,6 @@
         "2026M08"
       ],
       "values": [
-        5.7512,
         5.8048,
         5.903,
         6.0078,
@@ -1151,7 +1149,7 @@
         10.005,
         10.1907,
         10.3365,
-        10.3519,
+        10.3518,
         10.5371,
         10.7308,
         10.7172,
@@ -1163,17 +1161,17 @@
         10.9437,
         11.2713,
         11.5531,
-        11.5544,
+        11.5543,
         11.8095,
         11.9741,
-        11.9896,
-        12.0875,
+        11.9895,
+        12.0874,
         12.2019,
         12.2538,
-        12.3325,
-        12.0846,
+        12.3324,
+        12.0845,
         11.922,
-        12.1994,
+        12.1993,
         12.389,
         12.3506,
         12.6189,
@@ -1181,7 +1179,7 @@
         12.6883,
         12.7427,
         12.8397,
-        12.916,
+        12.9159,
         12.9767,
         12.7175,
         12.5821,
@@ -1189,40 +1187,40 @@
         13.0149,
         13.0274,
         13.1854,
-        13.2853,
+        13.2852,
         13.2705,
         13.3731,
         13.4317,
         13.4951,
         13.5331,
-        13.2452,
+        13.2451,
         13.1092,
-        13.4192,
-        13.6374,
-        13.6065,
-        13.8216,
-        13.8992,
-        13.9642,
-        14.0445,
-        14.0862,
-        14.1624,
-        14.1904,
-        13.8877,
-        13.7394,
-        14.0269,
-        14.2126,
-        14.2095,
-        14.4679,
-        14.5523,
-        14.6328,
-        14.5991
+        13.4191,
+        13.6373,
+        13.6064,
+        13.8214,
+        13.899,
+        13.9638,
+        14.0441,
+        14.0857,
+        14.162,
+        14.1901,
+        13.8872,
+        13.7386,
+        14.0262,
+        14.2115,
+        14.2082,
+        14.466,
+        14.5488,
+        14.6247,
+        14.5777
       ],
       "kpi": {
         "period": "2026M08",
-        "value": 14.5991,
+        "value": 14.5777,
         "lastYearPeriod": "2025M08",
-        "lastYearValue": 14.0445,
-        "changePp12m": 0.5546
+        "lastYearValue": 14.0441,
+        "changePp12m": 0.5336
       }
     },
     "nationalities": {
@@ -1345,142 +1343,142 @@
           "label": "Branche i alt",
           "foreignPersons": 447499.0,
           "foreignFulltime": 368479.0,
-          "totalFulltime": 2523978.0,
-          "share": 14.5991
+          "totalFulltime": 2527682.0,
+          "share": 14.5777
         },
         {
           "label": "Offentlig administration, undervisn. og sundhed",
           "foreignPersons": 78018.0,
           "foreignFulltime": 64433.0,
-          "totalFulltime": 831748.0,
-          "share": 7.7467
+          "totalFulltime": 833122.0,
+          "share": 7.7339
         },
         {
           "label": "Handel",
           "foreignPersons": 55076.0,
           "foreignFulltime": 40516.0,
-          "totalFulltime": 329268.0,
-          "share": 12.3049
+          "totalFulltime": 329754.0,
+          "share": 12.2867
         },
         {
           "label": "Industri",
           "foreignPersons": 63644.0,
           "foreignFulltime": 53666.0,
-          "totalFulltime": 285802.0,
-          "share": 18.7773
+          "totalFulltime": 286185.0,
+          "share": 18.7522
         },
         {
           "label": "Videnservice",
           "foreignPersons": 26195.0,
           "foreignFulltime": 23042.0,
-          "totalFulltime": 170004.0,
-          "share": 13.5538
+          "totalFulltime": 170257.0,
+          "share": 13.5337
         },
         {
           "label": "Bygge og anlæg",
           "foreignPersons": 36720.0,
           "foreignFulltime": 28938.0,
-          "totalFulltime": 162585.0,
-          "share": 17.7987
+          "totalFulltime": 163263.0,
+          "share": 17.7248
         },
         {
           "label": "Rejsebureau, rengøring o.a. operationel service",
           "foreignPersons": 63547.0,
           "foreignFulltime": 41418.0,
-          "totalFulltime": 131104.0,
-          "share": 31.5917
+          "totalFulltime": 132135.0,
+          "share": 31.3452
         },
         {
           "label": "Transport",
           "foreignPersons": 38656.0,
           "foreignFulltime": 28440.0,
-          "totalFulltime": 121317.0,
-          "share": 23.4427
+          "totalFulltime": 121617.0,
+          "share": 23.3849
         },
         {
           "label": "Information og kommunikation",
           "foreignPersons": 17821.0,
           "foreignFulltime": 16106.0,
-          "totalFulltime": 109000.0,
-          "share": 14.7761
+          "totalFulltime": 109203.0,
+          "share": 14.7487
         },
         {
           "label": "Hoteller og restauranter",
           "foreignPersons": 49694.0,
           "foreignFulltime": 32873.0,
-          "totalFulltime": 87540.0,
-          "share": 37.552
+          "totalFulltime": 88001.0,
+          "share": 37.3553
         },
         {
           "label": "Finansiering og forsikring",
           "foreignPersons": 7221.0,
           "foreignFulltime": 6581.0,
-          "totalFulltime": 87402.0,
-          "share": 7.5296
+          "totalFulltime": 87465.0,
+          "share": 7.5242
         },
         {
           "label": "Andre serviceydelser  mv.",
           "foreignPersons": 7982.0,
           "foreignFulltime": 5583.0,
-          "totalFulltime": 50293.0,
-          "share": 11.1009
+          "totalFulltime": 50346.0,
+          "share": 11.0893
         },
         {
           "label": "Kultur og fritid",
           "foreignPersons": 6834.0,
           "foreignFulltime": 4041.0,
-          "totalFulltime": 40850.0,
-          "share": 9.8923
+          "totalFulltime": 40904.0,
+          "share": 9.8792
         },
         {
           "label": "Ejendomshandel og udlejning",
           "foreignPersons": 5217.0,
           "foreignFulltime": 3058.0,
-          "totalFulltime": 37747.0,
-          "share": 8.1013
+          "totalFulltime": 37840.0,
+          "share": 8.0814
         },
         {
           "label": "Landbrug, skovbrug og fiskeri",
           "foreignPersons": 16907.0,
           "foreignFulltime": 14259.0,
-          "totalFulltime": 36248.0,
-          "share": 39.3373
+          "totalFulltime": 36418.0,
+          "share": 39.1537
         },
         {
           "label": "Energiforsyning",
           "foreignPersons": 1977.0,
           "foreignFulltime": 1840.0,
-          "totalFulltime": 16754.0,
-          "share": 10.9825
+          "totalFulltime": 16834.0,
+          "share": 10.9303
         },
         {
           "label": "Vandforsyning og renovation",
           "foreignPersons": 1199.0,
           "foreignFulltime": 984.0,
-          "totalFulltime": 12997.0,
-          "share": 7.571
+          "totalFulltime": 13016.0,
+          "share": 7.5599
         },
         {
           "label": "Uoplyst aktivitet",
           "foreignPersons": 3291.0,
           "foreignFulltime": 2105.0,
-          "totalFulltime": 10005.0,
-          "share": 21.0395
+          "totalFulltime": 8007.0,
+          "share": 26.2895
         },
         {
           "label": "Råstofindvinding",
           "foreignPersons": 691.0,
           "foreignFulltime": 595.0,
-          "totalFulltime": 3314.0,
-          "share": 17.9541
+          "totalFulltime": 3315.0,
+          "share": 17.9487
         }
       ],
       "highestShare": {
         "label": "Landbrug, skovbrug og fiskeri",
         "foreignPersons": 16907.0,
         "foreignFulltime": 14259.0,
-        "totalFulltime": 36248.0,
-        "share": 39.3373
+        "totalFulltime": 36418.0,
+        "share": 39.1537
       }
     },
     "residence": {
