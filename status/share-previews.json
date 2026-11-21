@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T22:34:42.394Z",
+  "generatedAt": "2026-11-21T22:37:43.102Z",
   "dashboard": "Udenlandske lønmodtagere",
   "real": 8,
   "fallback": 0,
@@ -7,37 +7,37 @@
     {
       "id": "timeChart",
       "real": true,
-      "bytes": 99907
+      "bytes": 96796
     },
     {
       "id": "shareChart",
       "real": true,
-      "bytes": 72003
+      "bytes": 71226
     },
     {
       "id": "nationalityChart",
       "real": true,
-      "bytes": 57865
+      "bytes": 57920
     },
     {
       "id": "branchChart",
       "real": true,
-      "bytes": 69341
+      "bytes": 69275
     },
     {
       "id": "residenceChart",
       "real": true,
-      "bytes": 91198
+      "bytes": 91470
     },
     {
       "id": "permitChart",
       "real": true,
-      "bytes": 173676
+      "bytes": 174036
     },
     {
       "id": "regionChart",
       "real": true,
-      "bytes": 52948
+      "bytes": 52955
     },
     {
       "id": "retentionChart",
