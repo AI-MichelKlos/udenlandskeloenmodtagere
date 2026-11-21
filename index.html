@@ -27,10 +27,11 @@ header{background-color:#4A3428!important;background-image:linear-gradient(135de
 #senior-dashboard .mk-cross-dashboard a[aria-current="page"]{color:#fff}
 @media(max-width:650px){.mk-cross-dashboard .mk-cross-inner{padding:10px 16px;gap:7px}.mk-cross-dashboard .mk-cross-label{width:100%}.mk-cross-dashboard a{font-size:12px;flex:1 1 40%;white-space:normal;text-align:center}}
 </style>
+<link rel="stylesheet" href="assets/editorial-design.css?v=20261121a">
 </head>
 <body>
-<header><div class="wrap"><p class="eyebrow">Arbejdsmarked</p><h1>Udenlandske lønmodtagere i Danmark</h1><div class="byline">Udarbejdet af Michel Klos</div><p class="lead">Udvikling, statsborgerskab, brancher, bopæl, opholdsgrundlag, arbejdssted og tilknytning til det danske arbejdsmarked.</p><div class="updated" id="updated">Indlæser seneste data...</div></div></header>
-<nav class="mk-cross-dashboard" aria-label="Skift mellem arbejdsmarkedsdashboards"><div class="mk-cross-inner"><span class="mk-cross-label">Udforsk flere dashboards</span><a href="https://ai-michelklos.github.io/Dashboard/">Analytisk overblik</a><a href="https://ai-michelklos.github.io/arbejdsstyrke/">Seniorer</a><a href="https://ai-michelklos.github.io/udenlandskeloenmodtagere/" aria-current="page">Udenlandske lønmodtagere</a><a href="https://ai-michelklos.github.io/A-kasseindsigt-dashboard/">A-kasseindsigt</a></div></nav>
+<nav class="mk-cross-dashboard" aria-label="Skift mellem arbejdsmarkedsdashboards"><div class="mk-cross-inner"><span class="mk-cross-label">Michel Klos<small>Arbejdsmarkedsanalyser</small></span><a href="https://ai-michelklos.github.io/Dashboard/">Analytisk overblik</a><a href="https://ai-michelklos.github.io/arbejdsstyrke/">Seniorer</a><a href="https://ai-michelklos.github.io/udenlandskeloenmodtagere/" aria-current="page">Udenlandske lønmodtagere</a><a href="https://ai-michelklos.github.io/A-kasseindsigt-dashboard/">A-kasseindsigt</a></div></nav>
+<header><div class="wrap"><p class="eyebrow">Arbejdsmarked</p><h1>Udenlandske lønmodtagere i Danmark</h1><p class="mk-editorial-subtitle">Udvikling, brancher og geografi i dansk beskæftigelse</p><div class="byline">Udarbejdet af Michel Klos</div><p class="lead">Udvikling, statsborgerskab, brancher, bopæl, opholdsgrundlag, arbejdssted og tilknytning til det danske arbejdsmarked.</p><div class="updated" id="updated">Indlæser seneste data...</div></div></header>
 <main><div class="status-banner" id="statusBanner"></div><div class="wrap">
 <div class="hero-kpis" id="heroKpis"></div>
 <section><div class="section-head"><div><h2>1. Udenlandske lønmodtagere over tid</h2><p class="section-sub">Månedlige faktiske tal fra 2008 og frem: antal personer og fuldtidsbeskæftigede.</p></div><span class="period-pill" id="period1"></span></div><div class="section-kpis" id="timeKpis"></div><div class="chart-box"><canvas id="timeChart"></canvas></div><p class="source">Kilde: Jobindsats.dk, udenlandske statsborgere med lønindkomst i Danmark.</p></section>
@@ -71,4 +72,5 @@ boot();
 <script data-goatcounter="https://udenlandskeloennmodtagere.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 <script src="assets/chart-linkedin.js?v=20261121"></script>
+<script src="assets/editorial-design.js?v=20261121a"></script>
 </body></html>
