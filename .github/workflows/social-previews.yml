@@ -1,0 +1,73 @@
+name: Publicer LinkedIn-forhåndsbilleder
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'index.html'
+      - 'data/dashboard-data.json'
+      - 'scripts/generate-share-previews.cjs'
+      - 'assets/chart-linkedin.js'
+      - 'share/**/index.html'
+      - '.github/workflows/social-previews.yml'
+  schedule:
+    - cron: '45 8 * * 1'
+permissions:
+  contents: write
+concurrency:
+  group: social-linkedin-previews
+  cancel-in-progress: true
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Kontroller JavaScript
+        run: |
+          node --check assets/chart-linkedin.js
+          node --check scripts/generate-share-previews.cjs
+      - name: Installer browser og billedgenerator
+        run: |
+          npm install --no-save playwright sharp
+          npx playwright install --with-deps chromium
+      - name: Start lokalt dashboard
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/social-preview-server.log 2>&1 &
+          sleep 3
+      - name: Generér grafer og forhåndsbilleder
+        run: node scripts/generate-share-previews.cjs
+      - name: Kontrollér billedfiler og sider
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const status=JSON.parse(fs.readFileSync('status/share-previews.json','utf8'));
+          if (!status.files.length) throw Error('Ingen billeder');
+          for(const img of status.files){
+            if(img.bytes<3000)throw Error('For lille billede: '+img.id);
+            if(!fs.existsSync('share/'+img.id+'/index.html'))throw Error('Mangler deleside '+img.id);
+          }
+          console.log('Kontrolleret '+status.files.length+' billeder, heraf '+status.real+' ægte grafbilleder.');
+          NODE
+      - name: Gem og publicér forhåndsbilleder
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/share-previews status/share-previews.json
+          if git diff --cached --quiet; then
+            echo "Ingen ændrede billedfiler."
+            exit 0
+          fi
+          git commit -m "Opdater LinkedIn-forhåndsbilleder"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Kunne ikke publicere de nye forhåndsbilleder" >&2
+          exit 1
