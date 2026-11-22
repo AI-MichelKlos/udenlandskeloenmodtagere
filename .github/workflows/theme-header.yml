@@ -1,46 +1,28 @@
-name: Opdater topdesign
-
+name: Kontrollér redaktionelt topdesign
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
+      - "index.html"
+      - "assets/editorial-design.css"
       - ".github/workflows/theme-header.yml"
-
 permissions:
-  contents: write
-
+  contents: read
 jobs:
   theme:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Anvend fælles dashboard-header
-        shell: bash
+      - name: Kontrollér at den gamle brune header ikke genindføres
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('index.html')
-          text = p.read_text(encoding='utf-8')
-          start = '<style id="dak-header-theme">'
-          end = '</style><!-- /dak-header-theme -->'
-          css = '''<style id="dak-header-theme">
-          header{background-color:#4A3428!important;background-image:linear-gradient(135deg,rgba(43,33,27,.31),rgba(43,33,27,.52)),url("https://raw.githubusercontent.com/AI-MichelKlos/A-kasseindsigt-dashboard/main/assets/arbejdsmarkedets-puls.webp")!important;background-position:center 46%,center!important;background-size:cover,cover!important;background-repeat:no-repeat,no-repeat!important}
-          @media(max-width:600px){header{background-position:58% center,center!important}}
-          </style><!-- /dak-header-theme -->'''
-          if start in text and end in text:
-              a = text.index(start)
-              b = text.index(end, a) + len(end)
-              text = text[:a] + css + text[b:]
-          else:
-              text = text.replace('</head>', css + '\n</head>', 1)
-          p.write_text(text, encoding='utf-8')
+          html = Path("index.html").read_text(encoding="utf-8")
+          css = Path("assets/editorial-design.css").read_text(encoding="utf-8")
+          assert "assets/editorial-design.css" in html, "Nyt design mangler"
+          assert 'id="dak-header-theme"' not in html, "Gammel brun header er tilbage"
+          assert "body > header::before" in css, "Beskyttelse mod gammel baggrund mangler"
+          assert 'url("./editorial-wave.svg")' in css, "Ny blå bølgebaggrund mangler"
+          print("OK: Redaktionelt topdesign er aktivt uden legacy-brunt banner")
           PY
-      - name: Gem ændringen
-        run: |
-          git add index.html
-          if git diff --cached --quiet; then exit 0; fi
-          git config user.name "Dashboard design"
-          git config user.email "dashboard-design@users.noreply.github.com"
-          git commit -m "Giv udenlandske lønmodtagere eget topdesign"
-          git push
