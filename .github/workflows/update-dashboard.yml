@@ -111,7 +111,20 @@ jobs:
             git config user.name "Dashboard automation"
             git config user.email "dashboard-automation@users.noreply.github.com"
             git commit -m "Opdater dashboarddata og status"
-            git push
+            pushed=false
+            for attempt in 1 2 3; do
+              if git push; then
+                pushed=true
+                break
+              fi
+              echo "Push fejlede i forsøg $attempt. Henter nyeste main og prøver igen."
+              git pull --rebase origin main
+              sleep $((attempt * 5))
+            done
+            if [ "$pushed" != "true" ]; then
+              echo "Kunne ikke publicere dashboarddata efter 3 forsøg."
+              exit 1
+            fi
           fi
 
       - name: Markér mislykket kørsel
